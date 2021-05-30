@@ -11,6 +11,9 @@ namespace RoutineStat.Areas.Identity.Data
     public class User : IdentityUser
     {
 
+        [Column(TypeName = "nvarchar(100)")]
+        public override string UserName { get; set; }
+
         [PersonalData]
         [Column(TypeName = "nvarchar(100)")]
         public string FirstName { get; set; }

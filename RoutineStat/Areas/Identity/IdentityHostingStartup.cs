@@ -20,7 +20,12 @@ namespace RoutineStat.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("RoutineStatContextConnection")));
 
-                services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<User>(options => 
+                {
+                    options.SignIn.RequireConfirmedAccount = false;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireLowercase = false;
+                })
                     .AddEntityFrameworkStores<RoutineStatContext>();
             });
         }
