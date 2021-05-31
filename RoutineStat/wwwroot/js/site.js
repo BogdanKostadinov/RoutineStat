@@ -1,4 +1,16 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿var fp = flatpickr(document.querySelector('#flatpickr'), {
+    //altFormat: "F j, Y",
+    altInput: true,
+    //inline: true,
+    dateFormat: "F, d Y H:i",
+    enableTime: true,
+    //mode: "multiple",
+    onChange: function (selectedDates, dateStr, instance) {
+        console.log('date: ', dateStr);
+    }
+});
 
-// Write your JavaScript code.
+
+$(".clear_button").click(function () {
+    fp.clear();
+})
