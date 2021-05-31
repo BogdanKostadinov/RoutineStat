@@ -16,11 +16,56 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <body>
-    <div class="col-sm-3">
-        <input type="text" id="flatpickr" placeholder="Please select Date Time" data-input>
-        <button class="clear_button" title="clear" data-clear>
-            Clear
-        </button>
+
+    <div class="row">
+
+        <form class="form-inline">
+            <div class="form-group mb-2">
+                <label>What time did you go to bed?</label>
+            </div>
+            <div class="form-group mx-sm-4 mb-2">
+                <input class="form-control bedTime" type="text" placeholder="Select Date and Time" data-input>
+            </div>
+            <button class="btn btn-danger mb-2 clear_button_bed" title="clear" data-clear>
+                <i class="far fa-calendar-times"></i>
+            </button>
+        </form>
+
+        <form class="form-inline">
+            <div class="form-group mb-2">
+                <label>What time did wake up?</label>
+            </div>
+            <div class="form-group mx-sm-4 mb-2">
+                <input class="form-control wakeTime" type="text" placeholder="Select Date and Time" data-input>
+            </div>
+            <button class="btn btn-danger mb-2 clear_button_wake" title="clear" data-clear>
+                <i class="far fa-calendar-times"></i>
+            </button>
+        </form>
+    </div>
+    <div class="row">
+        <form class="form-inline">
+            <div class="form-group mb-2">
+                <label>Select an activity</label>
+            </div>
+            <div class="form-group mx-sm-4 mb-2">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary mb-2" title="addActivity">
+                <i class="fas fa-tasks"></i>
+            </button>
+        </form>
+
+
     </div>
 
     <!-- Custom scripts -->
