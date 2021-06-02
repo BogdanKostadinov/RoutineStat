@@ -21,13 +21,6 @@ $(".clear_button_bed").click(function () {
     bedTime.clear();
 })
 
-$(".dropdown-menu li a").click(function () {
-
-    $(this).parents(".dropdown").find('.selection').text($(this).text());
-    $(this).parents(".dropdown").find('.selection').val($(this).text());
-
-});
-
 $('.btn-number').click(function (e) {
     e.preventDefault();
 
@@ -100,3 +93,24 @@ $(".input-number").keydown(function (e) {
     }
 });
 
+//Change dropdown value
+$(".dropdown-menu li a").click(function () {
+
+    $(this).parents(".dropdown").find('.selection').text($(this).text());
+    $(this).parents(".dropdown").find('.selection').val($(this).text());
+
+});
+
+$('.add-activity').click(function (e) {
+    e.preventDefault(); // cancel the link behaviour
+
+    let test = $('#dropdownList li a');
+   // var a = document.getElementsByClassName("dropdown-item");
+    var selText = $(test).text();
+    var node = document.createElement("LI");
+    var textnode = document.createTextNode(selText);
+    node.appendChild(textnode);
+    document.getElementById("myUL").appendChild(node);
+    console.log(test);
+
+})

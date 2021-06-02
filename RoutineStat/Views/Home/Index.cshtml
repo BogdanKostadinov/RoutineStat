@@ -40,7 +40,7 @@
 
                                     <span class="selection">Please select from the options below</span><span class="caret"></span>
                                 </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <ul class="dropdown-menu" id="dropdownList" aria-labelledby="dropdownMenuButton">
                                     <li><a class="dropdown-item" href="#">Breakfast time</a></li>
                                     <li><a class="dropdown-item" href="#">Lunch time</a></li>
                                     <li><a class="dropdown-item" href="#">Dinner time</a></li>
@@ -51,11 +51,11 @@
                                 </ul>
                             </div>
                             <div class="input-group-append">
-                                <button class="btn btn-primary mx-sm-3 mb-2" title="Add Activity">
+                                <button class="btn btn-primary mx-sm-3 mb-2 add-activity" title="Add Activity">
                                     <i class="fas fa-tasks"></i>
                                 </button>
                                 <div class="form-group mb-2">
-                                    <label style="margin-top: 6px;" for="exampleInputEmail1">For how many hours?</label>   
+                                    <label style="margin-top: 6px;">For how many hours?</label>   
                                 </div>
                                 <span class="input-group-btn">
                                     <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
@@ -73,7 +73,9 @@
 
                     </div>
                     <div class="input-group-append">
-                        <textarea class="form-control" rows="10"></textarea>
+                        <ul id="myUL">
+                            
+                        </ul>
                     </div>
                 </form>
             </div>
@@ -82,7 +84,6 @@
     </div>      
     <!-- Custom scripts -->
     <script language="JavaScript" type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="~/js/site.js"></script>
 </body>
 
 </html>
