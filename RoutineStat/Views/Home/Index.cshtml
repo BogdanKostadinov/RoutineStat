@@ -16,9 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <body>
-
-
-    <div style="width:40rem;" class="card">
+    <div style="width:50rem;" class="card">
         <div class="card-content">
             <div class="col-md-12">
                 <form>
@@ -38,32 +36,50 @@
                         <label>Select an activity</label>
                         <div class="input-group">
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dropdown button
+                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                    <span class="selection">Please select from the options below</span><span class="caret"></span>
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="#">Breakfast time</a></li>
+                                    <li><a class="dropdown-item" href="#">Lunch time</a></li>
+                                    <li><a class="dropdown-item" href="#">Dinner time</a></li>
+                                    <li><a class="dropdown-item" href="#">Work time</a></li>
+                                    <li><a class="dropdown-item" href="#">Gaming time</a></li>
+                                    <li><a class="dropdown-item" href="#">Social media time</a></li>
+                                    <li><a class="dropdown-item" href="#">Gym time</a></li>
+                                </ul>
                             </div>
                             <div class="input-group-append">
-                                <button class="btn btn-primary mb-2" title="addActivity">
+                                <button class="btn btn-primary mx-sm-3 mb-2" title="Add Activity">
                                     <i class="fas fa-tasks"></i>
                                 </button>
+                                <div class="form-group mb-2">
+                                    <label style="margin-top: 6px;" for="exampleInputEmail1">For how many hours?</label>   
+                                </div>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                    </button>
+                                </span>
+                                <input style="width:3rem;" type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </span>
                             </div>
                         </div>
-                        <div class="input-group-append">
-                            <textarea class="form-control" rows="10"></textarea>
-                        </div>
+
+                    </div>
+                    <div class="input-group-append">
+                        <textarea class="form-control" rows="10"></textarea>
                     </div>
                 </form>
-
             </div>
+
         </div>
-    </div>
-
-
+    </div>      
     <!-- Custom scripts -->
     <script language="JavaScript" type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="~/js/site.js"></script>
