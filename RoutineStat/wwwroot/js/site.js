@@ -107,8 +107,15 @@ $('.add-activity').click(function (e) {
     let dropdownOption = $('.selection');
     var selectedText = $(dropdownOption).text();
     var node = document.createElement("LI");
-    //var node = document.addEventListener("LI");
+    var btnDelete = document.createElement("BUTTON");
+    btnDelete.addEventListener("onclick", deleteFromList(e));
     var textnode = document.createTextNode(selectedText);
     node.appendChild(textnode);
+    node.appendChild(btnDelete);
     document.getElementById("myUL").appendChild(node);
 })
+
+function deleteFromList(e) {
+    e.preventDefault();
+    console.log("test");
+}
