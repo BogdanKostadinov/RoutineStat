@@ -102,15 +102,13 @@ $(".dropdown-menu li a").click(function () {
 });
 
 $('.add-activity').click(function (e) {
-    e.preventDefault(); // cancel the link behaviour
+    e.preventDefault();
 
-    let test = $('#dropdownList li a');
-   // var a = document.getElementsByClassName("dropdown-item");
-    var selText = $(test).text();
+    let dropdownOption = $('.selection');
+    var selectedText = $(dropdownOption).text();
     var node = document.createElement("LI");
-    var textnode = document.createTextNode(selText);
+    //var node = document.addEventListener("LI");
+    var textnode = document.createTextNode(selectedText);
     node.appendChild(textnode);
     document.getElementById("myUL").appendChild(node);
-    console.log(test);
-
 })
