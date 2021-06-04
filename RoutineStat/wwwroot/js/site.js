@@ -108,19 +108,26 @@ $('.add-activity').click(function (e) {
     var selectedText = $(dropdownOption).text();
     var node = document.createElement("LI");
     var btnDelete = document.createElement("input");
-
-    btnDelete.type = "button";
-    btnDelete.name = "add";
-    btnDelete.value = "X";
-    btnDelete.className = "btn btn-danger btn-xs";
-    btnDelete.style = "margin-left: 20px;"; 
-
-    $(btnDelete).click(function () {
-        e.preventDefault();
-        node.remove();
-    });
     var textnode = document.createTextNode(selectedText);
-    node.appendChild(textnode);
-    node.appendChild(btnDelete);
-    document.getElementById("myUL").appendChild(node);
+
+    if (textnode.textContent == "Please select from the options below") {
+        alert("Invalid option");
+    }
+    else
+    {
+        btnDelete.type = "button";
+        btnDelete.name = "add";
+        btnDelete.value = "X";
+        btnDelete.className = "btn btn-danger btn-xs";
+        btnDelete.style = "margin-left: 20px;";
+
+        $(btnDelete).click(function () {
+            e.preventDefault();
+            node.remove();
+        });
+        node.appendChild(textnode);
+        node.appendChild(btnDelete);
+        document.getElementById("myUL").appendChild(node);
+    }
+
 })
