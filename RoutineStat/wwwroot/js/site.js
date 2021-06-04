@@ -115,6 +115,7 @@ $('.add-activity').click(function (e) {
     }
     else
     {
+        //TODO: add hours to LI element 
         btnDelete.type = "button";
         btnDelete.name = "add";
         btnDelete.value = "X";
