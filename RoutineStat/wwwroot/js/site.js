@@ -107,15 +107,20 @@ $('.add-activity').click(function (e) {
     let dropdownOption = $('.selection');
     var selectedText = $(dropdownOption).text();
     var node = document.createElement("LI");
-    var btnDelete = document.createElement("BUTTON");
-    btnDelete.addEventListener("onclick", deleteFromList(e));
+    var btnDelete = document.createElement("input");
+
+    btnDelete.type = "button";
+    btnDelete.name = "add";
+    btnDelete.value = "X";
+    btnDelete.className = "btn btn-danger btn-xs";
+    btnDelete.style = "margin-left: 20px;"; 
+
+    $(btnDelete).click(function () {
+        e.preventDefault();
+        node.remove();
+    });
     var textnode = document.createTextNode(selectedText);
     node.appendChild(textnode);
     node.appendChild(btnDelete);
     document.getElementById("myUL").appendChild(node);
 })
-
-function deleteFromList(e) {
-    e.preventDefault();
-    console.log("test");
-}
