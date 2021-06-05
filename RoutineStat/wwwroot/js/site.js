@@ -105,28 +105,39 @@ $('.add-activity').click(function (e) {
     e.preventDefault();
 
     let dropdownOption = $('.selection');
+
     var selectedText = $(dropdownOption).text();
     var node = document.createElement("LI");
+
+    let hoursSpent = document.getElementById("hoursSpent");
+    let hoursText = $(hoursSpent).val();
+
     var btnDelete = document.createElement("input");
+    var dash = document.createElement("a");
+
     var textnode = document.createTextNode(selectedText);
+    var hoursNode = document.createTextNode(hoursText);
 
     if (textnode.textContent == "Please select from the options below") {
         alert("Invalid option");
     }
     else
     {
-        //TODO: add hours to LI element 
+        dash.innerText = " - "; 
+       
         btnDelete.type = "button";
         btnDelete.name = "add";
-        btnDelete.value = "X";
+        btnDelete.value = "x";
         btnDelete.className = "btn btn-danger btn-xs";
-        btnDelete.style = "margin-left: 20px;";
+        btnDelete.style = "margin-left: 15px;";
 
         $(btnDelete).click(function () {
             e.preventDefault();
             node.remove();
         });
         node.appendChild(textnode);
+        node.appendChild(dash);
+        node.appendChild(hoursNode);
         node.appendChild(btnDelete);
         document.getElementById("myUL").appendChild(node);
     }
