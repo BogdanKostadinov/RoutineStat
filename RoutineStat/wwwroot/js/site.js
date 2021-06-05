@@ -4,12 +4,12 @@
     dateFormat: "Y-m-d",
 
     //TODO: disable 2 days ago, enable 1 day ahead
-    disable: [
-        function (date) {
-            // disable every multiple of 8
-            return !(date.getDate() % 8);
-        }
-    ],
+    //disable: [
+    //    function (date) {
+    //        // disable every multiple of 8
+    //        return !(date.getDate() % 8);
+    //    }
+    //],
     altInput: true,
     enableTime: true,
     onChange: function (selectedDates, dateStr, instance) {
