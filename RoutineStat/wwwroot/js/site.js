@@ -1,4 +1,7 @@
-﻿var rangeTest = flatpickr(document.querySelector('.bedTime'), {
+﻿let columnNumber = 0;
+
+
+var rangeTest = flatpickr(document.querySelector('.bedTime'), {
     mode: "range",
     minDate: "today",
     dateFormat: "Y-m-d",
@@ -106,14 +109,19 @@ $('.add-activity').click(function (e) {
 
     let dropdownOption = $('.selection');
 
-    var selectedText = $(dropdownOption).text();
-    var node = document.createElement("LI");
 
+    var selectedText = $(dropdownOption).text();
+    var tr = document.createElement("tr");
+    var th = document.createElement("th");
+    var tdName = document.createElement("td");
+    var tdTime = document.createElement("td");
+    var tdButton = document.createElement("td");
+    var trCount = document.createElement("a");
+    
     let hoursSpent = document.getElementById("hoursSpent");
     let hoursText = $(hoursSpent).val();
 
     var btnDelete = document.createElement("input");
-    var dash = document.createElement("a");
 
     var textnode = document.createTextNode(selectedText);
     var hoursNode = document.createTextNode(hoursText);
@@ -121,25 +129,82 @@ $('.add-activity').click(function (e) {
     if (textnode.textContent == "Please select from the options below") {
         alert("Invalid option");
     }
-    else
-    {
-        dash.innerText = " - "; 
-       
+    else {
+
         btnDelete.type = "button";
         btnDelete.name = "add";
         btnDelete.value = "x";
         btnDelete.className = "btn btn-danger btn-xs";
-        btnDelete.style = "margin-left: 15px;";
+
+        columnNumber++;
+
+        trCount.innerHTML = columnNumber;
+        th.appendChild(trCount);
+        tdName.appendChild(textnode);
+        tdTime.appendChild(hoursNode);
+        tdButton.appendChild(btnDelete);
+
+        let newRow = document.getElementById("myUL");
+        newRow.appendChild(tr);
+        tr.appendChild(th);
+        tr.appendChild(tdName);
+        tr.appendChild(tdTime);
+        tr.appendChild(tdButton);
 
         $(btnDelete).click(function () {
             e.preventDefault();
-            node.remove();
+            while (tr.firstChild) {
+                tr.removeChild(tr.firstChild);
+            }
         });
-        node.appendChild(textnode);
-        node.appendChild(dash);
-        node.appendChild(hoursNode);
-        node.appendChild(btnDelete);
-        document.getElementById("myUL").appendChild(node);
+
+        console.log(columnNumber);
     }
 
 })
+
+//$('.add-activity').click(function (e) {
+//    e.preventDefault();
+
+//    let dropdownOption = $('.selection');
+
+//    var selectedText = $(dropdownOption).text();
+//    var node = document.createElement("LI");
+
+//    node.style = "padding-top: 1rem;";
+
+//    let hoursSpent = document.getElementById("hoursSpent");
+//    let hoursText = $(hoursSpent).val();
+
+//    var btnDelete = document.createElement("input");
+//    var dash = document.createElement("a");
+
+//    var textnode = document.createTextNode(selectedText);
+//    var hoursNode = document.createTextNode(hoursText);
+
+//    if (textnode.textContent == "Please select from the options below") {
+//        alert("Invalid option");
+//    }
+//    else {
+
+//        dash.innerText = " - ";
+
+//        btnDelete.type = "button";
+//        btnDelete.name = "add";
+//        btnDelete.value = "x";
+//        btnDelete.className = "btn btn-danger btn-xs";
+//        btnDelete.style = "margin-left: 15px;";
+
+//        $(btnDelete).click(function () {
+//            e.preventDefault();
+//            node.remove();
+//        });
+//        node.appendChild(textnode);
+//        node.appendChild(dash);
+//        node.appendChild(hoursNode);
+//        node.appendChild(btnDelete);
+//        document.getElementById("myUL").appendChild(node);
+//    }
+
+//})
+

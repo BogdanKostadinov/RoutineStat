@@ -72,9 +72,25 @@
                         </div>
 
                     </div>
-                    <div class="input-group-append">
-                        <ul id="myUL">
-                        </ul>
+                    <div class="table-responsive input-group-append">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Activity name</th>
+                                    <th scope="col">Activity time</th>
+                                    <th scope="col">Remove activity</th>
+                                </tr>
+                            </thead>
+                            <tbody id="myUL">
+                            </tbody>
+                        </table>
+                        @*<div id="activityName" class="col-6"></div>
+                        <div id="activityTime" class="col-3"></div>
+                        <div id="activityDeleteButton" class="col-3"></div>*@
+                        @*<ul id="myUL">
+                            </ul>*@
+
                     </div>
                     <div class="d-flex justify-content-center">
                         <button type="submit" class="btn btn-primary btn-lg">Calculate summary</button>
@@ -84,7 +100,7 @@
             </div>
 
         </div>
-    </div>      
+    </div>
     <!-- Custom scripts -->
     <script language="JavaScript" type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
 </body>
