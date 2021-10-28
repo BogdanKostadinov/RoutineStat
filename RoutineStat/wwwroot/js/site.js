@@ -20,7 +20,7 @@ var rangeTest = flatpickr(document.querySelector('.bedTime'), {
         console.log('date: ', dateStr);
     }
 });
-
+document.getElementById("calculate-summary").addEventListener("click", drawChart);
 $(".clear_button_bed").click(function () {
     bedTime.clear();
 })
@@ -109,8 +109,6 @@ $('.add-activity').click(function (e) {
     e.preventDefault();
 
     let dropdownOption = $('.selection');
-
-
     var selectedText = $(dropdownOption).text();
     var tr = document.createElement("tr");
     var th = document.createElement("th");
@@ -187,9 +185,10 @@ function drawChart() {
     var options = {
         title: 'My Daily Activities',
         is3D: true,
+        width: 800,
+        height: 500,
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
     chart.draw(data, options);
 }
-
