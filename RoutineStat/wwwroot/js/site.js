@@ -156,9 +156,13 @@ $('.add-activity').click(function (e) {
             while (tr.firstChild) {
                 tr.removeChild(tr.firstChild);
             }
+
+            if (newRow.childNodes.length == 0) {
+                console.log(newRow.childNodes.length);
+                columnNumber == 0;
+            }
         });
 
-        console.log(columnNumber);
     }
 
 })

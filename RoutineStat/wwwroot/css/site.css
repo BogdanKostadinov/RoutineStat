@@ -26,10 +26,9 @@ a {
 
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
-    font-size: 14px;
-}
 
+html {
+}
 @media (min-width: 768px) {
     html {
         font-size: 16px;
@@ -64,6 +63,8 @@ body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
     font-family: 'Roboto', sans-serif;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
 }
 
 .footer {
@@ -72,6 +73,7 @@ body {
     width: 100%;
     white-space: nowrap;
     line-height: 60px; /* Vertically center the text there */
+    background-color: white;
 }
 
 form {
