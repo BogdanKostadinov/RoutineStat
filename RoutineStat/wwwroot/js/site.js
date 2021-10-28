@@ -154,9 +154,16 @@ $('.add-activity').click(function (e) {
 
         $(btnDelete).click(function () {
             e.preventDefault();
+            let tableRow = document.querySelectorAll('#myTable tbody tr').length;
 
             tr.remove();
-            console.log(document.querySelectorAll('#myTable tbody tr').length);
+            console.log("TableRow " + tableRow);
+
+            for (let i = 1; i < tableRow; i++) {
+
+                $("#myUL tr").children("th")[i - 1].innerText = i;
+                columnNumber = i;
+            }
 
             if ($('#myUL tr').length == 0) {
                 columnNumber = 0;
@@ -166,49 +173,4 @@ $('.add-activity').click(function (e) {
     }
 
 })
-
-//$('.add-activity').click(function (e) {
-//    e.preventDefault();
-
-//    let dropdownOption = $('.selection');
-
-//    var selectedText = $(dropdownOption).text();
-//    var node = document.createElement("LI");
-
-//    node.style = "padding-top: 1rem;";
-
-//    let hoursSpent = document.getElementById("hoursSpent");
-//    let hoursText = $(hoursSpent).val();
-
-//    var btnDelete = document.createElement("input");
-//    var dash = document.createElement("a");
-
-//    var textnode = document.createTextNode(selectedText);
-//    var hoursNode = document.createTextNode(hoursText);
-
-//    if (textnode.textContent == "Please select from the options below") {
-//        alert("Invalid option");
-//    }
-//    else {
-
-//        dash.innerText = " - ";
-
-//        btnDelete.type = "button";
-//        btnDelete.name = "add";
-//        btnDelete.value = "x";
-//        btnDelete.className = "btn btn-danger btn-xs";
-//        btnDelete.style = "margin-left: 15px;";
-
-//        $(btnDelete).click(function () {
-//            e.preventDefault();
-//            node.remove();
-//        });
-//        node.appendChild(textnode);
-//        node.appendChild(dash);
-//        node.appendChild(hoursNode);
-//        node.appendChild(btnDelete);
-//        document.getElementById("myUL").appendChild(node);
-//    }
-
-//})
 
