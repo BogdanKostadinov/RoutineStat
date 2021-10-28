@@ -1,5 +1,6 @@
 ﻿let columnNumber = 0;
-
+google.charts.load("current", { packages: ["corechart"] });
+google.charts.setOnLoadCallback(drawChart);
 
 var rangeTest = flatpickr(document.querySelector('.bedTime'), {
     mode: "range",
@@ -157,7 +158,6 @@ $('.add-activity').click(function (e) {
             let tableRow = document.querySelectorAll('#myTable tbody tr').length;
 
             tr.remove();
-            console.log("TableRow " + tableRow);
 
             for (let i = 1; i < tableRow; i++) {
 
@@ -173,4 +173,23 @@ $('.add-activity').click(function (e) {
     }
 
 })
+
+function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['Work', 11],
+        ['Eat', 2],
+        ['Commute', 2],
+        ['Watch TV', 2],
+        ['Sleep', 7]
+    ]);
+
+    var options = {
+        title: 'My Daily Activities',
+        is3D: true,
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+    chart.draw(data, options);
+}
 

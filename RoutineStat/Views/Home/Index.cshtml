@@ -14,93 +14,108 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
-    <div style="width:46rem;" class="card mx-auto">
-        <div class="card-content">
-            <div class="col-md-12">
-                <form>
-                    <div class="form-group">
-                        <label>What time did you go to bed and wake up?</label>
-                        <div class="input-group">
-                            <input class="form-control bedTime" type="text" placeholder="Select Date and Time" data-input>
-                            <div class="input-group-append">
-                                <button class="btn btn-danger mb-2 clear_button_bed" title="clear" data-clear>
-                                    <i class="far fa-calendar-times"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <small hidden disabled class="form-text text-muted">Please select date and time when you went to bed and wake up.</small>
-                    </div>
-                    <div class="form-group">
-                        <label>Select an activity</label>
-                        <div class="input-group">
-                            <div class="dropdown">
-                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                                    <span class="selection">Please select from the options below</span><span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" id="dropdownList" aria-labelledby="dropdownMenuButton">
-                                    <li><a class="dropdown-item" href="#">Breakfast time</a></li>
-                                    <li><a class="dropdown-item" href="#">Lunch time</a></li>
-                                    <li><a class="dropdown-item" href="#">Dinner time</a></li>
-                                    <li><a class="dropdown-item" href="#">Work time</a></li>
-                                    <li><a class="dropdown-item" href="#">Gaming time</a></li>
-                                    <li><a class="dropdown-item" href="#">Social media time</a></li>
-                                    <li><a class="dropdown-item" href="#">Gym time</a></li>
-                                </ul>
-                            </div>
-                            <div class="input-group-append">
-                                <button class="btn btn-primary mx-sm-3 mb-2 add-activity" title="Add Activity">
-                                    <i class="fas fa-tasks"></i>
-                                </button>
-                                <div class="form-group mb-2">
-                                    <label style="margin-top: 6px;">For how many hours?</label>
+    <div class="row">
+        <div class="col-6">
+            <div  class="card mainCard">
+                <div class="card-content">
+                    <div class="col-md-12">
+                        <form>
+                            <div class="form-group">
+                                <label>What time did you go to bed and wake up?</label>
+                                <div class="input-group">
+                                    <input class="form-control bedTime" type="text" placeholder="Select Date and Time" data-input>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-danger mb-2 clear_button_bed" title="clear" data-clear>
+                                            <i class="far fa-calendar-times"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                                        <i class="fa fa-minus" aria-hidden="true"></i>
-                                    </button>
-                                </span>
-                                <input id="hoursSpent" style="width:3rem;" type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                </span>
+                                <small hidden disabled class="form-text text-muted">Please select date and time when you went to bed and wake up.</small>
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label>Select an activity</label>
+                                <div class="input-group">
+                                    <div class="dropdown">
+                                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-                    </div>
-                    <div class="table-responsive input-group-append">
-                        <table id="myTable" class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Activity name</th>
-                                    <th scope="col">Activity time</th>
-                                    <th scope="col">Remove activity</th>
-                                </tr>
-                            </thead>
-                            <tbody id="myUL">
-                            </tbody>
-                        </table>
-                        @*<div id="activityName" class="col-6"></div>
-                            <div id="activityTime" class="col-3"></div>
-                            <div id="activityDeleteButton" class="col-3"></div>*@
-                        @*<ul id="myUL">
-                            </ul>*@
+                                            <span class="selection">Please select from the options below</span><span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" id="dropdownList" aria-labelledby="dropdownMenuButton">
+                                            <li><a class="dropdown-item" href="#">Breakfast time</a></li>
+                                            <li><a class="dropdown-item" href="#">Lunch time</a></li>
+                                            <li><a class="dropdown-item" href="#">Dinner time</a></li>
+                                            <li><a class="dropdown-item" href="#">Work time</a></li>
+                                            <li><a class="dropdown-item" href="#">Gaming time</a></li>
+                                            <li><a class="dropdown-item" href="#">Social media time</a></li>
+                                            <li><a class="dropdown-item" href="#">Gym time</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary mx-sm-3 mb-2 add-activity" title="Add Activity">
+                                            <i class="fas fa-tasks"></i>
+                                        </button>
+                                        <div class="form-group mb-2">
+                                            <label style="margin-top: 6px;">For how many hours?</label>
+                                        </div>
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                            </button>
+                                        </span>
+                                        <input id="hoursSpent" style="width:3rem;" type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
 
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary btn-lg">Calculate summary</button>
+                            </div>
+                            <div class="table-responsive input-group-append">
+                                <table id="myTable" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Activity name</th>
+                                            <th scope="col">Activity time</th>
+                                            <th scope="col">Remove activity</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="myUL">
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Calculate summary</button>
+                            </div>
+
+                        </form>
                     </div>
 
-                </form>
+                </div>
             </div>
-
         </div>
+
+        <div class="col-6">
+            <div class="card">
+                <div class="card-content">
+                    <div class="col-md-12">
+                        <div id="piechart_3d"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
     </div>
+    
+
     <!-- Custom scripts -->
     <script language="JavaScript" type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
 </body>

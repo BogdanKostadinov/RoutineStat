@@ -29,6 +29,7 @@ a {
 
 html {
 }
+
 @media (min-width: 768px) {
     html {
         font-size: 16px;
@@ -97,3 +98,10 @@ li {
     padding-top: 5px;
 }
 
+.card {
+    margin: 3rem 3rem 3rem 3rem;
+}
+
+#piechart_3d {
+    height: 500px;
+}
