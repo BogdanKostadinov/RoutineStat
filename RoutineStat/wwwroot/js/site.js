@@ -145,6 +145,7 @@ $('.add-activity').click(function (e) {
         tdButton.appendChild(btnDelete);
 
         let newRow = document.getElementById("myUL");
+        
         newRow.appendChild(tr);
         tr.appendChild(th);
         tr.appendChild(tdName);
@@ -153,13 +154,12 @@ $('.add-activity').click(function (e) {
 
         $(btnDelete).click(function () {
             e.preventDefault();
-            while (tr.firstChild) {
-                tr.removeChild(tr.firstChild);
-            }
 
-            if (newRow.childNodes.length == 0) {
-                console.log(newRow.childNodes.length);
-                columnNumber == 0;
+            tr.remove();
+            console.log(document.querySelectorAll('#myTable tbody tr').length);
+
+            if ($('#myUL tr').length == 0) {
+                columnNumber = 0;
             }
         });
 
