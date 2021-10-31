@@ -2,6 +2,8 @@
 google.charts.load("current", { packages: ["corechart"] });
 google.charts.setOnLoadCallback(drawChart);
 
+//document.getElementById("calculate-summary").onclick(drawChart($("#myUL tr")));
+//let calculateSummary = document.getElementById("calculate-summary").addEventListener("click", drawChart($("#myUL tr")));
 var rangeTest = flatpickr(document.querySelector('.bedTime'), {
     mode: "range",
     minDate: "today",
@@ -20,7 +22,7 @@ var rangeTest = flatpickr(document.querySelector('.bedTime'), {
         console.log('date: ', dateStr);
     }
 });
-document.getElementById("calculate-summary").addEventListener("click", drawChart);
+
 $(".clear_button_bed").click(function () {
     bedTime.clear();
 })
@@ -167,12 +169,19 @@ $('.add-activity').click(function (e) {
                 columnNumber = 0;
             }
         });
-
+        //if (document.getElementById("calculate-summary").clicked == true) {
+        //    alert("button was clicked");
+        //    drawChart($("#myUL tr"));
+        //}
+        if ($("#calculate-summary").data('clicked')) {
+            alert("button was clicked");
+            drawChart($("#myUL tr"));
+        }
     }
 
 })
 
-function drawChart() {
+function drawChart(node) {
     var data = google.visualization.arrayToDataTable([
         ['Task', 'Hours per Day'],
         ['Work', 11],
@@ -181,7 +190,7 @@ function drawChart() {
         ['Watch TV', 2],
         ['Sleep', 7]
     ]);
-
+   console.log(node.children("td")[0]);
     var options = {
         title: 'My Daily Activities',
         is3D: true,
