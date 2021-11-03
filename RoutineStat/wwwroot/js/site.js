@@ -176,7 +176,9 @@ $('.add-activity').click(function (e) {
 $('#calculate-summary').click(function () {
 
     let node = document.querySelectorAll('#myTable tbody tr');
-    let test = node[1].innerHTML;
+    for (var i = 0; i < length; i++) {
+
+    }
     
 
     var data = google.visualization.arrayToDataTable([
