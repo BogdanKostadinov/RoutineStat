@@ -2,7 +2,6 @@
 google.charts.load("current", { packages: ["corechart"] });
 google.charts.setOnLoadCallback(drawChart);
 
-//document.getElementById("calculate-summary").onclick(drawChart($("#myUL tr")));
 //let calculateSummary = document.getElementById("calculate-summary").addEventListener("click", drawChart($("#myUL tr")));
 var rangeTest = flatpickr(document.querySelector('.bedTime'), {
     mode: "range",
@@ -155,11 +154,11 @@ $('.add-activity').click(function (e) {
 
         $(btnDelete).click(function () {
             e.preventDefault();
-            let tableRow = document.querySelectorAll('#myTable tbody tr').length;
+            let tableRowLength = document.querySelectorAll('#myTable tbody tr').length;
 
             tr.remove();
 
-            for (let i = 1; i < tableRow; i++) {
+            for (let i = 1; i < tableRowLength; i++) {
 
                 $("#myUL tr").children("th")[i - 1].innerText = i;
                 columnNumber = i;
@@ -169,19 +168,17 @@ $('.add-activity').click(function (e) {
                 columnNumber = 0;
             }
         });
-        //if (document.getElementById("calculate-summary").clicked == true) {
-        //    alert("button was clicked");
-        //    drawChart($("#myUL tr"));
-        //}
-        if ($("#calculate-summary").data('clicked')) {
-            alert("button was clicked");
-            drawChart($("#myUL tr"));
-        }
     }
+        //document.getElementById("calculate-summary").onclick(drawChart($("#myUL tr")));
 
 })
 
-function drawChart(node) {
+$('#calculate-summary').click(function () {
+
+    let node = document.querySelectorAll('#myTable tbody tr');
+    let test = node[1].innerHTML;
+    
+
     var data = google.visualization.arrayToDataTable([
         ['Task', 'Hours per Day'],
         ['Work', 11],
@@ -190,7 +187,34 @@ function drawChart(node) {
         ['Watch TV', 2],
         ['Sleep', 7]
     ]);
-   console.log(node.children("td")[0]);
+
+
+    console.log(node);
+    console.log(test);
+    var options = {
+        title: 'My Daily Activities',
+        is3D: true,
+        width: 800,
+        height: 500,
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+    chart.draw(data, options);
+})
+
+function drawChart() {
+    //alert("jo");
+    var data = google.visualization.arrayToDataTable([
+        ['Breakfast', 'Hours per Day'],
+        ['Lunch', 1],
+        ['Dinner', 1],
+        ['Work', 1],
+        ['Watch TV', 1],
+        ['Gaming', 1],
+        ['Social media', 1],
+        ['Gym', 1],
+    ]);
+
     var options = {
         title: 'My Daily Activities',
         is3D: true,
